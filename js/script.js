@@ -10,13 +10,19 @@ function clickBoton() {
 
     alert('Se presionó el botón');
 
-    if (nombreGasto === '' || valorGasto === '') {
+    if (nombreGasto !== '' && valorGasto !== '') {
         listaNombresGastos.push(nombreGasto);
         listaValoresGastos.push(valorGasto);
 
         actualizarListaGastos();
+        limpiarCajas();
     }
 
+}
+
+function limpiarCajas() {
+    document.querySelector('#nombreGasto').value = '';
+    document.getElementById('valorGasto').value = '';
 }
 
 function actualizarListaGastos() {
@@ -38,5 +44,12 @@ function actualizarListaGastos() {
     listaDeGastos.innerHTML = htmlLista;
     valorTotal.textContent = total.toFixed(2);
 
+}
+
+function eliminarGasto(posicion) {
+    listaNombresGastos.splice(posicion, 1);
+    listaValoresGastos.splice(posicion, 1);
+    actualizarListaGastos();
+    limpiarCajas();
 }
 
