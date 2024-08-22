@@ -39,7 +39,7 @@ function actualizarListaGastos() {
         const valorGasto = Number(listaValoresGastos[posicion]);
 
         htmlLista += `<li>
-            ${nombreGasto}: US$${valorGasto.toFixed(2)}
+            ${nombreGasto}: US$ ${valorGasto.toFixed(2)}
             <button onclick="eliminarGasto(${posicion})">Eliminar</button>
         </li>`;
         total += Number(valorGasto);
